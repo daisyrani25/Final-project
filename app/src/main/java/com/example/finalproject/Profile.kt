@@ -22,12 +22,9 @@ import androidx.navigation.NavHostController
 import com.example.finalproject.ui.theme.FinalprojectTheme
 import com.example.finalproject.ui.theme.ThemeColor
 
-
-
 @Composable
-fun Onboard(navController: NavHostController) {
-
-
+fun Profile(navController: NavHostController)
+{
     var first= remember {
         mutableStateOf(value = "")
     }
@@ -39,13 +36,13 @@ fun Onboard(navController: NavHostController) {
     }
     Column {
 
-        Image(painter = painterResource(id = R.drawable.mainlogo) , contentDescription = "",
+        Image(painter = painterResource(id = R.drawable.mainlogo), contentDescription = "",
             modifier = Modifier
                 .fillMaxWidth(0.95F)
                 .padding(horizontal = 20.dp)
                 .heightIn(40.dp))
-
-        Box(
+        Spacer(modifier = Modifier.heightIn(100.dp))
+       /* Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(75.dp)
@@ -55,37 +52,37 @@ fun Onboard(navController: NavHostController) {
         {
             Text(
                 text = "Let's Get to Know you",
-                        modifier = Modifier.heightIn(40.dp)
+                modifier = Modifier.heightIn(40.dp)
             )
-           }
-            Text(
-                text = "Personal Information",
-                fontSize = 20.sp
-            )
+        }*/
+        Text(
+            text = "Personal Information",
+            fontSize = 20.sp
+        )
         Spacer(modifier = Modifier.heightIn(50.dp))
-            Text(
-                text = "First Name",
-                fontSize = 20.sp
-            )
-            TextField(
-                value = first.value, onValueChange = {first.value=it},
+        Text(
+            text = "First Name",
+            fontSize = 20.sp
+        )
+        TextField(
+            value = first.value, onValueChange = {first.value=it},
 
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .heightIn(40.dp)
-            )
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(40.dp)
+        )
         Spacer(modifier = Modifier.heightIn(40.dp))
-            Text(
-                text = "Last Name",
-                fontSize = 20.sp
-            )
+        Text(
+            text = "Last Name",
+            fontSize = 20.sp
+        )
         TextField(value = last.value, onValueChange = {last.value=it},
-                Modifier.fillMaxWidth())
+            Modifier.fillMaxWidth())
         Spacer(modifier = Modifier.heightIn(40.dp))
-            Text(
-                text = "Email",
-                fontSize = 20.sp
-            )
+        Text(
+            text = "Email",
+            fontSize = 20.sp
+        )
 
         TextField(value = email1.value, onValueChange = {email1.value=it},
             modifier = Modifier
@@ -93,30 +90,29 @@ fun Onboard(navController: NavHostController) {
                 .heightIn(40.dp)
 
         )
-        Spacer(modifier = Modifier.heightIn(270.dp))
-            Button(
-                onClick = {
-navController.navigate(Profile.route)
-                         /* if(first.value.isBlank()) {
-                              Toast.makeText(context,
-                                  "Registration unsuccessful. Please enter all data.",
-                                  Toast.LENGTH_LONG
-                              ).show()
-                          }*/
-                          },
-                modifier = Modifier.fillMaxWidth(),
-                shape= CircleShape,
-                colors = ButtonDefaults.buttonColors(
-                    Color(0xFFF4CE14)
-                )
-            ) {
-                Text(
-                    text = "Register",
-                    color = Color(0xFFEDEFEE)
-                )
-            }
+        Spacer(modifier = Modifier.heightIn(250.dp))
+        Button(
+            onClick = {
+                navController.navigate(route = "Onboard")
+                /* if(first.value.isBlank()) {
+                     Toast.makeText(context,
+                         "Registration unsuccessful. Please enter all data.",
+                         Toast.LENGTH_LONG
+                     ).show()
+                 }*/
+            },
+            modifier = Modifier.fillMaxWidth(),
+            shape= CircleShape,
+            colors = ButtonDefaults.buttonColors(
+                Color(0xFFF4CE14)
+            )
+        ) {
+            Text(
+                text = "Log Out",
+                color = Color(0xFFEDEFEE)
+            )
+        }
 
     }
 }
-
 
